@@ -10,10 +10,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const protractor_1 = require("protractor");
-const Calculator_1 = require("./PageObjects/Calculator");
+const CalculatorHomePage_1 = require("./PageObjects/CalculatorHomePage");
 describe('Chain Locators Protractor Demo', () => {
     it('Chain Locators Demo', () => __awaiter(void 0, void 0, void 0, function* () {
-        let calcPageObjRef = new Calculator_1.Calculator();
+        let calcPageObjRef = new CalculatorHomePage_1.CalculatorHomePage();
         protractor_1.browser.get("http://juliemr.github.io/protractor-demo");
         yield calcPageObjRef.firstEditBox.sendKeys("3");
         yield calcPageObjRef.secondEditBox.sendKeys("5");

@@ -7,10 +7,11 @@ exports.config = {
     capabilities: {
         browserName: 'chrome'
     },
-    specs: ['../features/demo.feature'],
+    specs: ['../Features/demo.feature'],
     cucumberOpts: {
+        tags: "@smoke",
         require: [
-            '.StepDefinitions/*.ts'
+            './StepDefinitions/*.ts'
         ]
     }
 };

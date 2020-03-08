@@ -1,6 +1,6 @@
 import { ElementFinder, element, by } from "protractor";
 
-export class Calculator
+export class CalculatorHomePage
 {
     firstEditBox:ElementFinder;
     secondEditBox:ElementFinder;

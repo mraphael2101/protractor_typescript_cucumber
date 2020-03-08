@@ -1,7 +1,7 @@
 /* To get the below Protractor classes to work in Typescript you must import them from protractor package.
 If this was JS and not TS it would not be necessary to perform the import */
 import { browser, element, by } from "protractor"
-import { Calculator } from "./PageObjects/Calculator"
+import { CalculatorHomePage } from "./PageObjects/CalculatorHomePage"
 
 
 describe('Chain Locators Protractor Demo', ()=> {
@@ -9,7 +9,7 @@ describe('Chain Locators Protractor Demo', ()=> {
 	// In order to use the await function you have to add async keyword next to flat pipe (anonymous function)
 	it('Chain Locators Demo', async()=> {
 
-		let calcPageObjRef = new Calculator();
+		let calcPageObjRef = new CalculatorHomePage();
 		
 		browser.get("http://juliemr.github.io/protractor-demo");
 

@@ -12,10 +12,11 @@ export let config: Config = {
     },
 
     // the double dot indicates to move up one directory
-    specs: ['../features/demo.feature'],
+    specs: ['../Features/demo.feature'],
     cucumberOpts: {
+        tags:"@smoke",
         require: [
-            '.StepDefinitions/*.ts'
+            './StepDefinitions/*.ts'
         ]
     }
 

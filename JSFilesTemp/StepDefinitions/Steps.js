@@ -8,13 +8,20 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const cucumber_1 = require("cucumber");
-const Calculator_1 = require("../PageObjects/Calculator");
+const CalculatorHomePage_1 = require("../PageObjects/CalculatorHomePage");
 const protractor_1 = require("protractor");
-let calcPageObjRef = new Calculator_1.Calculator();
-cucumber_1.Given('I will navigate to Calc Site', () => __awaiter(void 0, void 0, void 0, function* () {
-    yield protractor_1.browser.get("http://juliemr.github.io/protractor-demo");
+const chai_1 = __importDefault(require("chai"));
+var expect = chai_1.default.expect;
+let calcPageObjRef = new CalculatorHomePage_1.CalculatorHomePage();
+cucumber_1.Given('I will navigate to {string} Site', (string) => __awaiter(void 0, void 0, void 0, function* () {
+    if (string == 'Calc AngularJS Web App') {
+        yield protractor_1.browser.get("http://juliemr.github.io/protractor-demo");
+    }
 }));
 cucumber_1.When('I add two numbers {string} and {string2}', (string, string2) => __awaiter(void 0, void 0, void 0, function* () {
     yield calcPageObjRef.firstEditBox.sendKeys(string);
@@ -22,6 +29,6 @@ cucumber_1.When('I add two numbers {string} and {string2}', (string, string2) =>
 }));
 cucumber_1.Then('the output displayed should be {string}', (string) => __awaiter(void 0, void 0, void 0, function* () {
     yield calcPageObjRef.getResult.getText().then(function (text) {
-        console.log(text);
+        expect(text).to.equal(string);
     });
 }));

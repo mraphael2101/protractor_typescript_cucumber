@@ -17,4 +17,4 @@ Then the output displayed should be "<key>"
 Examples:
 | key |
 | 9 |
-| 5 |
+| 7 |

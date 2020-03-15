@@ -14,19 +14,20 @@ Given('I will navigate to {string} Site', async (string) => {
 });
 
 
-When('I add two numbers {string} and {string2}', async (string, string2) => {
+When('I add two numbers {string} and {string}', async (string, string2) => {
     await calcPageObjRef.firstEditBox.sendKeys(string);
-    await calcPageObjRef.firstEditBox.sendKeys(string2);
+    await calcPageObjRef.secondEditBox.sendKeys(string2);
+    await calcPageObjRef.goButton.click();
 });
 
 
 Then('the output displayed should be {string}', async (string) => {
-    await calcPageObjRef.getResult.getText().then(function (text) {
+    await calcPageObjRef.getResult.getText().then(function(text) {
 
         /* Cucumber does not support Jasmine Assertions. If you are using Cucumber then you should
         aim to use Chai Assertions. The three core methods of Chai are Should, Expect, and Assert */
         expect(text).to.equal(string);
     });
 
-    
+
 });

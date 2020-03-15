@@ -23,9 +23,10 @@ cucumber_1.Given('I will navigate to {string} Site', (string) => __awaiter(void 
         yield protractor_1.browser.get("http://juliemr.github.io/protractor-demo");
     }
 }));
-cucumber_1.When('I add two numbers {string} and {string2}', (string, string2) => __awaiter(void 0, void 0, void 0, function* () {
+cucumber_1.When('I add two numbers {string} and {string}', (string, string2) => __awaiter(void 0, void 0, void 0, function* () {
     yield calcPageObjRef.firstEditBox.sendKeys(string);
-    yield calcPageObjRef.firstEditBox.sendKeys(string2);
+    yield calcPageObjRef.secondEditBox.sendKeys(string2);
+    yield calcPageObjRef.goButton.click();
 }));
 cucumber_1.Then('the output displayed should be {string}', (string) => __awaiter(void 0, void 0, void 0, function* () {
     yield calcPageObjRef.getResult.getText().then(function (text) {

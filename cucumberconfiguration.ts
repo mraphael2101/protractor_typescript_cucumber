@@ -1,5 +1,5 @@
-import { Config } from "protractor"; // typescript syntax
-var reporter = require('cucumber-html-reporter');  //JS syntax
+import { Config } from "protractor"; // Typescript syntax
+var reporter = require('cucumber-html-reporter');  // JS syntax
 
 
 export let config: Config = {
@@ -11,6 +11,12 @@ export let config: Config = {
 
     capabilities: {
         browserName: 'chrome'
+    },
+
+    onPrepare() {
+        require('ts-node').register({
+            project: require('path').join(__dirname, './tsconfig.json')
+        });
     },
 
     // the double dot indicates to move up one directory
@@ -40,7 +46,7 @@ export let config: Config = {
             reporter.generate(options);
         },
         require: [
-            './StepDefinitions/*.ts'
+            '../StepDefinitions/*.ts'
         ]
     }
 

@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var reporter = require('cucumber-html-reporter');
 exports.config = {
     directConnect: true,
     framework: "custom",
@@ -7,12 +8,16 @@ exports.config = {
     capabilities: {
         browserName: 'chrome'
     },
+    onPrepare() {
+        require('ts-node').register({
+            project: require('path').join(__dirname, './tsconfig.json')
+        });
+    },
     specs: ['../Features/demo.feature'],
     cucumberOpts: {
         tags: '@smoke',
         format: 'json:./cucumberreport.json',
         onComplete: () => {
-            var reporter = require('cucumber-html-reporter');
             var options = {
                 theme: 'bootstrap',
                 jsonFile: './cucumber_report.json',
@@ -32,7 +37,7 @@ exports.config = {
             reporter.generate(options);
         },
         require: [
-            './StepDefinitions/*.ts'
+            '../StepDefinitions/*.ts'
         ]
     }
 };

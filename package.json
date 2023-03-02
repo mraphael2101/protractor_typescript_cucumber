@@ -13,7 +13,7 @@
   "author": "Mark Raphael",
   "license": "ISC",
   "dependencies": {
-    "protractor": "^5.4.3",
+    "protractor": "^5.4.4",
     "typescript": "~3.8.3",
     "jasmine": "3.5.0",
     "@types/jasmine": "3.5.7",
